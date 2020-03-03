@@ -49,9 +49,9 @@ function App( ) {
         <Formcontainer>
           <Formtitle>Créer votre compte</Formtitle>
           <Checkboxcontainer >
-            <input type="checkbox" value="kaka" />
+            <input type="checkbox" />
             <label>Mr</label>
-            <input type="checkbox" value="papa" />
+            <input type="checkbox" />
             <label>Mme</label>
           </Checkboxcontainer>
 
