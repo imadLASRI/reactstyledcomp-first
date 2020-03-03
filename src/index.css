@@ -1,0 +1,9 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+label{
+  color: #737373;
+  font-size: 12px;
+}
