@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import styled from 'styled-components';
 
@@ -16,13 +16,24 @@ import {Formtitle} from './Formtitle';
 import {Checkboxcontainer} from './Checkboxcontainer';
 import {Input} from './Input';
 import {Button} from './Button';
+// Theme Component
+import {Switchtheme} from './Switchtheme';
 
 function App( ) {
+
+  // theme STATE
+  const [theme, setTheme] = useState('light');
+
+  // toggle theme function
+  const switchTheme = () => {
+    (theme == 'light') ? setTheme('dark') : setTheme('light');
+  }
+
   return (
     <div className="App">
 
       {/* NAVBAR */}
-      <Navbar>
+      <Navbar theme={theme}>
         <a href="https://imadlasri.github.io" target="_blank">
           <Logo imgsrc="img/sofa-logo.png" />
         </a>
@@ -42,12 +53,16 @@ function App( ) {
       </Navbar>
       {/* END NAVBAR */}
 
+      
       {/* FORM BODY */}
         {/* native html container to center the form component ?? */}
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+    
+      <div theme={theme} style={{ display: 'flex', justifyContent: 'center', background: (theme == 'light') ? 'white' : 'black' }}>
+        {/* TOggle theme Div Button */}
+        <Switchtheme theme={theme} onClick={switchTheme}>{theme} mode</Switchtheme>
 
         <Formcontainer>
-          <Formtitle>Créer votre compte</Formtitle>
+          <Formtitle theme={theme}>Créer votre compte</Formtitle>
           <Checkboxcontainer >
             <input type="checkbox" />
             <label>Mr</label>
