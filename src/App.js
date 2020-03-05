@@ -29,6 +29,63 @@ function App( ) {
     (theme == 'light') ? setTheme('dark') : setTheme('light');
   }
 
+  // =========================
+
+  // form data state
+  const [formData, setFormData] = useState({});
+
+  // Getting the form data
+  const storeFormData = (e) => {
+    // RADIO
+    switch(e.target.name){
+      case 'gender':
+        (e.target.value != '') && setFormData({...formData, gender: e.target.value})
+        break;
+    }
+
+    // INPUT
+    switch(e.target.id){
+      case 'nom':
+        (e.target.value != '') && setFormData({...formData, nom: e.target.value})
+        break;
+
+      case 'prenom':
+        (e.target.value != '') && setFormData({...formData, prenom: e.target.value})
+        break;
+
+      case 'email':
+        (e.target.value != '') && setFormData({...formData, email: e.target.value})
+        break;
+
+      case 'password':
+        (e.target.value != '') && setFormData({...formData, password: e.target.value})
+        break;
+
+      case 'datenaissance':
+        (e.target.value != '') && setFormData({...formData, datenaisssance: e.target.value})
+        break;
+
+      // CHECKBOX
+      case 'offres':
+        (e.target.checked) ? setFormData({...formData, offres: 'on'}) : setFormData({...formData, offres: 'off'});
+        break;
+
+      case 'newsletter':
+        (e.target.checked) ? setFormData({...formData, newsletter: 'on'}) : setFormData({...formData, newsletter: 'off'});
+        break;
+    }
+  }
+
+  // submit button
+  const getFormData = (e) => {
+    e.preventDefault();
+
+    console.log('Form data here :');
+    console.log(formData);
+  }
+
+  // =========================
+
   return (
     <div className="App">
 
@@ -52,7 +109,6 @@ function App( ) {
         </Navlinkscontainer>
       </Navbar>
       {/* END NAVBAR */}
-
       
       {/* FORM BODY */}
         {/* native html container to center the form component ?? */}
@@ -64,31 +120,31 @@ function App( ) {
         <Formcontainer>
           <Formtitle theme={theme}>Créer votre compte</Formtitle>
           <Checkboxcontainer >
-            <input type="checkbox" />
+            <input type="radio" name="gender" value="mr" onChange={storeFormData}/>
             <label>Mr</label>
-            <input type="checkbox" />
+            <input type="radio" name="gender" value="mme" onChange={storeFormData}/>
             <label>Mme</label>
           </Checkboxcontainer>
 
-          <Input type="text" placeholder="Nom *" />
-          <Input type="text" placeholder="Prenom *" />
-          <Input type="email" placeholder="Email *" />
-          <Input type="password" placeholder="Password *" />
-          <Input type="date" placeholder="Date de naissance *" dateInput/>
+          <Input type="text" placeholder="Nom *" onChange={storeFormData} id="nom" />
+          <Input type="text" placeholder="Prenom *" onChange={storeFormData} id="prenom" />
+          <Input type="email" placeholder="Email *" onChange={storeFormData} id="email"/>
+          <Input type="password" placeholder="Password *" onChange={storeFormData} id="password"/>
+          <Input type="date" placeholder="Date de naissance *" dateInput onChange={storeFormData} id="datenaissance"/>
 
           <Checkboxcontainer flexCol>
             <Checkboxcontainer>
-              <input type="checkbox" />
+              <input type="checkbox" id="offres" onChange={storeFormData}/>
               <label>Recevoir les offres de nos partenaires</label>
             </Checkboxcontainer>
 
             <Checkboxcontainer>
-              <input type="checkbox" />
+              <input type="checkbox" id="newsletter" onChange={storeFormData}/>
               <label>Inscrivez-moi à la newsletter</label>
             </Checkboxcontainer>
           </Checkboxcontainer>
 
-          <Button>se connecter</Button>
+          <Button onClick={ getFormData }>se connecter</Button>
 
         </Formcontainer>
 
