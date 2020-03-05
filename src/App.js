@@ -113,10 +113,10 @@ function App( ) {
       {/* FORM BODY */}
         {/* native html container to center the form component ?? */}
     
-      <div theme={theme} style={{ display: 'flex', justifyContent: 'center', background: (theme == 'light') ? 'white' : 'black' }}>
+      <div theme={theme} style={{ position: 'relative', display: 'flex', justifyContent: 'center', background: (theme == 'light') ? 'white' : 'black' }}>
         {/* TOggle theme Div Button */}
         <Switchtheme theme={theme} onClick={switchTheme}>{theme} mode</Switchtheme>
-
+        
         <Formcontainer>
           <Formtitle theme={theme}>Créer votre compte</Formtitle>
           <Checkboxcontainer >
@@ -145,7 +145,6 @@ function App( ) {
           </Checkboxcontainer>
 
           <Button onClick={ getFormData }>se connecter</Button>
-
         </Formcontainer>
 
       </div>
