@@ -8,8 +8,8 @@ export const Switchtheme = styled.div`
     margin-top: 10px;
     border: 3px solid darkslategrey;
     border-radius: 20px;
-    background: ${props => (props.theme == 'light') ? 'black' : 'white'};
-    color: ${props => (props.theme == 'light') ? 'white' : 'black'};
+    background: ${props => (props.theme === 'light') ? 'black' : 'white'};
+    color: ${props => (props.theme === 'light') ? 'white' : 'black'};
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;

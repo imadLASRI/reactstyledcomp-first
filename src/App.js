@@ -26,7 +26,7 @@ function App( ) {
 
   // toggle theme function
   const switchTheme = () => {
-    (theme == 'light') ? setTheme('dark') : setTheme('light');
+    (theme === 'light') ? setTheme('dark') : setTheme('light');
   }
 
   // =========================
@@ -39,30 +39,30 @@ function App( ) {
     // RADIO
     switch(e.target.name){
       case 'gender':
-        (e.target.value != '') && setFormData({...formData, gender: e.target.value})
+        (e.target.value !== '') && setFormData({...formData, gender: e.target.value})
         break;
     }
 
     // INPUT
     switch(e.target.id){
       case 'nom':
-        (e.target.value != '') && setFormData({...formData, nom: e.target.value})
+        (e.target.value !== '') && setFormData({...formData, nom: e.target.value})
         break;
 
       case 'prenom':
-        (e.target.value != '') && setFormData({...formData, prenom: e.target.value})
+        (e.target.value !== '') && setFormData({...formData, prenom: e.target.value})
         break;
 
       case 'email':
-        (e.target.value != '') && setFormData({...formData, email: e.target.value})
+        (e.target.value !== '') && setFormData({...formData, email: e.target.value})
         break;
 
       case 'password':
-        (e.target.value != '') && setFormData({...formData, password: e.target.value})
+        (e.target.value !== '') && setFormData({...formData, password: e.target.value})
         break;
 
       case 'datenaissance':
-        (e.target.value != '') && setFormData({...formData, datenaisssance: e.target.value})
+        (e.target.value !== '') && setFormData({...formData, datenaisssance: e.target.value})
         break;
 
       // CHECKBOX

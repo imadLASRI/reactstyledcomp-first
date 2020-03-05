@@ -7,5 +7,5 @@ export const Navbar = styled.div`
     /* width: 100%; */
     height: 75px;
     padding: 22px 50px;
-    background-color: ${props => (props.theme == 'light') ? 'black' : 'darkslategrey'};
+    background-color: ${props => (props.theme === 'light') ? 'black' : 'darkslategrey'};
 `;
